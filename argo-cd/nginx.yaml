@@ -7,8 +7,12 @@ spec:
   project: default
   source:
     repoURL: https://github.com/rarquevaux/SampleGitOpsApp.git
-    path: manifests
+    path: mychart
     targetRevision: main
+    helm:
+      releaseName: nginx
+      values: |
+        replicaCount: 2
   destination:
     server: "https://kubernetes.default.svc"
     namespace: default
